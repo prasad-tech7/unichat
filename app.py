@@ -391,7 +391,7 @@ with st.sidebar:
         st.rerun()
 
 # ─── Main Chat Area ───────────────────────────────────────────
-st.title("✦ UniChat")
+st.title("✦ UniChat by PRASAD")
 st.caption("Switch AI providers anytime — your conversation never stops")
 
 session = st.session_state.session
