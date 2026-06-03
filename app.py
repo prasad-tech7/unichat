@@ -410,7 +410,7 @@ with st.sidebar:
 """, unsafe_allow_html=True)
 
 # ─── Main Chat Area ───────────────────────────────────────────
-st.title("✦ UniChat")
+st.title("✦ UniChat by PRASAD")
 st.caption("Switch AI providers anytime — your conversation never stops")
 
 session = st.session_state.session
