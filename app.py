@@ -17,7 +17,6 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
-/* ── Root Variables ── */
 :root {
     --accent: #7C6FF7;
     --accent-light: #EEE9FF;
@@ -33,13 +32,11 @@ st.markdown("""
     --shadow: 0 4px 24px rgba(124,111,247,0.10);
 }
 
-/* ── Global Reset ── */
 html, body, [class*="css"] {
     font-family: 'DM Sans', sans-serif !important;
     background-color: #F3F1FF !important;
 }
 
-/* ── Hide Streamlit chrome ── */
 #MainMenu, footer, header { visibility: hidden; }
 .stDeployButton { display: none; }
 .block-container {
@@ -48,7 +45,6 @@ html, body, [class*="css"] {
     max-width: 900px !important;
 }
 
-/* ── Sidebar ── */
 [data-testid="stSidebar"] {
     background: linear-gradient(160deg, #1A1535 0%, #2D2260 100%) !important;
     border-right: none !important;
@@ -80,8 +76,6 @@ html, body, [class*="css"] {
     border-color: rgba(255,255,255,0.08) !important;
     margin: 12px 0 !important;
 }
-
-/* ── Sidebar selectbox ── */
 [data-testid="stSidebar"] .stSelectbox > div > div {
     background: rgba(255,255,255,0.07) !important;
     border: 1px solid rgba(255,255,255,0.15) !important;
@@ -92,8 +86,6 @@ html, body, [class*="css"] {
     border-color: rgba(124,111,247,0.6) !important;
     background: rgba(124,111,247,0.15) !important;
 }
-
-/* ── Sidebar info box ── */
 [data-testid="stSidebar"] [data-testid="stInfo"] {
     background: rgba(124,111,247,0.15) !important;
     border: 1px solid rgba(124,111,247,0.3) !important;
@@ -106,8 +98,6 @@ html, body, [class*="css"] {
     border-radius: 10px !important;
     color: #6EE7B7 !important;
 }
-
-/* ── Sidebar metrics ── */
 [data-testid="stSidebar"] [data-testid="stMetric"] {
     background: rgba(255,255,255,0.06) !important;
     border-radius: 12px !important;
@@ -124,8 +114,6 @@ html, body, [class*="css"] {
     color: #A89EEF !important;
     font-size: 12px !important;
 }
-
-/* ── Sidebar button ── */
 [data-testid="stSidebar"] .stButton > button {
     background: rgba(255,255,255,0.05) !important;
     border: 1px solid rgba(255,255,255,0.12) !important;
@@ -140,7 +128,6 @@ html, body, [class*="css"] {
     color: #FF9999 !important;
 }
 
-/* ── Main title ── */
 .main .stMarkdown h1,
 .main h1 {
     font-family: 'Syne', sans-serif !important;
@@ -155,7 +142,6 @@ html, body, [class*="css"] {
     font-size: 14px !important;
 }
 
-/* ── Chat messages ── */
 [data-testid="stChatMessage"] {
     background: var(--surface) !important;
     border: 1px solid var(--border) !important;
@@ -173,7 +159,6 @@ html, body, [class*="css"] {
     color: #FFFFFF !important;
 }
 
-/* ── Chat input ── */
 [data-testid="stChatInput"] {
     background: var(--surface) !important;
     border: 1.5px solid var(--border) !important;
@@ -197,7 +182,6 @@ html, body, [class*="css"] {
     color: white !important;
 }
 
-/* ── Alert / info / warning / error ── */
 [data-testid="stAlert"] {
     border-radius: 14px !important;
     border: none !important;
@@ -224,7 +208,6 @@ html, body, [class*="css"] {
     color: #9F1239 !important;
 }
 
-/* ── Toast ── */
 [data-testid="stToast"] {
     background: #1A1535 !important;
     color: white !important;
@@ -233,12 +216,10 @@ html, body, [class*="css"] {
     border: 1px solid rgba(124,111,247,0.3) !important;
 }
 
-/* ── Spinner ── */
 [data-testid="stSpinner"] > div {
     border-top-color: var(--accent) !important;
 }
 
-/* ── Welcome card ── */
 .welcome-card {
     background: linear-gradient(135deg, #1A1535 0%, #2D2260 60%, #3D2080 100%);
     border-radius: 20px;
@@ -306,6 +287,36 @@ html, body, [class*="css"] {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 8px;
+}
+
+/* ── Developer Credit ── */
+.dev-credit {
+    text-align: center;
+    padding: 12px 0 4px 0;
+}
+.dev-credit p.label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    margin: 0;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.dev-credit p.name {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #A89EEF;
+    margin: 3px 0 0 0;
+    letter-spacing: 0.08em;
+}
+.dev-credit p.name span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #7C6FF7;
+    border-radius: 50%;
+    margin: 0 6px 2px 6px;
+    vertical-align: middle;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -390,8 +401,16 @@ with st.sidebar:
         st.session_state.session.clear()
         st.rerun()
 
+    # ── Developer Credit ──
+    st.markdown("""
+<div class="dev-credit">
+    <p class="label">Developed by</p>
+    <p class="name"><span></span>PRASAD<span></span></p>
+</div>
+""", unsafe_allow_html=True)
+
 # ─── Main Chat Area ───────────────────────────────────────────
-st.title("✦ UniChat by PRASAD")
+st.title("✦ UniChat")
 st.caption("Switch AI providers anytime — your conversation never stops")
 
 session = st.session_state.session
