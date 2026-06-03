@@ -1,8 +1,6 @@
 # src/providers/mistral_provider.py
 
-# src/providers/mistral_provider.py
-
-from mistralai import Mistral as MistralClient
+from mistralai.client import Mistral as MistralClient
 from typing import List, Dict
 from src.providers.base_provider import BaseProvider
 
@@ -20,6 +18,7 @@ class MistralProvider(BaseProvider):
         """Sends messages to Mistral and returns response."""
         try:
             formatted = self.format_messages(messages)
+
             response = self.client.chat.complete(
                 model=self.model,
                 messages=formatted,
